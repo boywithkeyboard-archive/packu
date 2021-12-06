@@ -1,0 +1,54 @@
+{
+  "name": "vaze",
+  "version": "0.0.0",
+  "description": "A better bundler for Node.js",
+  "main": "build/index.js",
+  "types": "types/index.d.ts",
+  "scripts": {
+    "dev": "",
+    "build": "esbuild src/index.js --bundle --minify --format=esm --platform=node --outfile=build/index.js && terser build/index.js --compress --mangle --output build/index.js",
+    "publish:patch": "npm run build && npm version patch && npm publish",
+    "publish:minor": "npm run build && npm version minor && npm publish",
+    "publish:major": "npm run build && npm version major && npm publish"
+  },
+  "funding": {
+    "type": "individual",
+    "url": "https://ko-fi.com/azury"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/azurystudios/vaze.git"
+  },
+  "keywords": [
+    "cache",
+    "minimalistic",
+    "kv",
+    "easy-to-use",
+    "asynchronous"
+  ],
+  "author": "Azury <hello@azury.dev> (https://azury.dev)",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/azurystudios/vaze/issues"
+  },
+  "homepage": "https://github.com/azurystudios/vaze#readme",
+  "devDependencies": {
+    "@types/html-minifier-terser": "^6.1.0",
+    "@types/svgo": "^2.6.0",
+    "@types/yargs": "^17.0.7",
+    "boxen": "^6.2.1",
+    "chalk": "^5.0.0",
+    "esbuild": "^0.14.2",
+    "esbuild-css-modules-plugin": "^2.0.9",
+    "html-minifier-terser": "^7.0.0-alpha.0",
+    "node-fetch": "^3.1.0",
+    "svgo": "^2.8.0",
+    "terser": "^5.10.0",
+    "typescript": "^4.5.2",
+    "yargs": "^17.3.0"
+  },
+  "engines": {
+    "node": ">=16.0.0",
+    "npm": ">=8.0.0"
+  }
+}
