@@ -2,7 +2,7 @@
 
 **A better bundler for Node.js**
 
-## Installation
+### Installation
 
 Install the package using your favorite package manager.
 
@@ -11,7 +11,7 @@ npm i @azury/bundler
 yarn add @azury/bundler
 ```
 
-## Usage
+### Usage
 
 **Default Mode** `Production`
 
