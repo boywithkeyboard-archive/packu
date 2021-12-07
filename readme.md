@@ -1,6 +1,6 @@
 ## Azury's Bundler
 
-> [`@azury/bundler`](https://npm.im/@azury/bundler) was created explicitly for **Azury's products** and might not work for yours. 
+> [`@azury/bundler`](https://npm.im/@azury/bundler) was primarily created for **Azury's projects** and might not work for yours.
 
 ### Installation
 
