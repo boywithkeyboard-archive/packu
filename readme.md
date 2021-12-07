@@ -1,6 +1,6 @@
 ## Azury's Bundler
 
-**A better bundler for Node.js**
+> [`@azury/bundler`](https://npm.im/@azury/bundler) was created explicitly for **Azury's products** and might not work for some of yours. 
 
 ### Installation
 
