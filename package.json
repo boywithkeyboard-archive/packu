@@ -1,5 +1,5 @@
 {
-  "name": "vaze",
+  "name": "@azury/bundler",
   "version": "0.0.0",
   "description": "A better bundler for Node.js",
   "main": "build/index.js",
@@ -17,7 +17,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/azurystudios/vaze.git"
+    "url": "git+https://github.com/azurystudios/bundler.git"
   },
   "keywords": [
     "cache",
@@ -29,9 +29,9 @@
   "author": "Azury <hello@azury.dev> (https://azury.dev)",
   "license": "Apache-2.0",
   "bugs": {
-    "url": "https://github.com/azurystudios/vaze/issues"
+    "url": "https://github.com/azurystudios/bundler/issues"
   },
-  "homepage": "https://github.com/azurystudios/vaze#readme",
+  "homepage": "https://github.com/azurystudios/bundler#readme",
   "devDependencies": {
     "@types/html-minifier-terser": "^6.1.0",
     "@types/svgo": "^2.6.0",
