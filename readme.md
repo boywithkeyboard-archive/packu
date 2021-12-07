@@ -18,7 +18,7 @@ yarn add @azury/bundler
 Bundles a specific file using **esbuild**.
 
 ```sh-session
-bundle
+build
 ```
 
 **Watch Mode** `Development`
@@ -26,7 +26,7 @@ bundle
 Bundles a specific file in watch mode using **esbuild**.
 
 ```sh-session
-bundle --watch
+build --watch
 ```
 
 **Images Mode**
@@ -34,7 +34,7 @@ bundle --watch
 Minifies **all images** in a specific folder.
 
 ```sh-session
-bundle --images
+build images
 ```
 
 **Minify Mode**
@@ -42,7 +42,7 @@ bundle --images
 Minifies **all files** in a specific folder.
 
 ```sh-session
-bundle --minify
+build minify
 ```
 
 **CSS Modules**
@@ -50,11 +50,11 @@ bundle --minify
 Bundles a specific file *(with css modules)* using **esbuild**.
 
 ```sh-session
-bundle --css
+build css
 ```
 
 Bundles a specific file *(with css modules)* in watch mode using **esbuild**.
 
 ```sh-session
-bundle --css --watch
+build css --watch
 ```
