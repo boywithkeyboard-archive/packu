@@ -1,46 +1,47 @@
-import { readFileSync, writeFileSync } from 'fs'
-
-import { optimize } from 'svgo'
-import { minify } from 'terser'
-import { minify as minifyHTML } from 'html-minifier-terser'
-import { hideBin } from 'yargs/helpers'
-import yargs from 'yargs'
-import boxen from 'boxen'
-import chalk from 'chalk'
-import fs from 'fs'
+import { minifyCSS, minifyJS, minifyJSON, minifySVG, minifyHTML } from '../core/minify'
 import glob from 'glob'
+import fse from 'fs-extra'
+import { statSync } from 'fs'
+import error from '../core/error'
+import success from '../core/success'
 
 export default (config: any) => {
+  try {
+    const start = Date.now()
 
-  //glob('./assets' + '/**/*', (err, files) => {
-  /*  if (err) throw err
-
-    files = files.filter(file => file.endsWith('.js') || file.endsWith('.svg') || file.endsWith('.css'))
+    const { directory, input, output } = config
   
-    files.forEach(async file => {
-      if (file.endsWith('.svg')) {
-        const result = optimize(fs.readFileSync(file, 'utf8'), {
-          path: file,
-          multipass: true
-        })
-    
-        fs.writeFileSync(file, result.data, 'utf-8', (err) => {
-          if (err) throw err
-        })
-      } else if (file.endsWith('.js')) {
-        const result = await minify(fs.readFileSync(file, 'utf8'))
-    
-        fs.writeFileSync(file, result.code, 'utf-8', (err) => {
-          if (err) throw err
-        })
-      } else {
-        const result = await minifyCSS(fs.readFileSync(file, 'utf8'))
-    
-        fs.writeFileSync(file, result, 'utf-8', (err) => {
-          if (err) throw err
+    if (statSync(directory + input).isFile()) {
+      if (input.endsWith('.css')) minifyCSS(directory + input, directory + output)
+      if (input.endsWith('.html')) minifyHTML(directory + input, directory + output)
+      if (input.endsWith('.js')) minifyJS(directory + input, directory + output)
+      if (input.endsWith('.json')) minifyJSON(directory + input, directory + output)
+      if (input.endsWith('.svg')) minifySVG(directory + input, directory + output, true)
+    } else {
+      const minify = async () => {
+        await fse.copy(directory + input, directory + output)
+
+        glob(directory + output + '/**/*', (err, files) => {
+          if (err) return error(err)
+  
+          files = files.filter(file => file.endsWith('.json') || file.endsWith('.js') || file.endsWith('.html') || file.endsWith('.svg') || file.endsWith('.css'))
+  
+          files.forEach(file => {
+            if (input.endsWith('.css')) minifyCSS(file, file)
+            if (input.endsWith('.html')) minifyHTML(file, file)
+            if (input.endsWith('.js')) minifyJS(file, file)
+            if (input.endsWith('.json')) minifyJSON(file, file)
+            if (input.endsWith('.svg')) minifySVG(file, file, false)
+          })
         })
       }
-    })
-  })
-  */
+      minify()
+    }
+
+    const stop = Date.now()
+
+    success((stop - start) / 1000)
+  } catch (err) {
+    error(err)
+  }
 }
