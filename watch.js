@@ -3,9 +3,8 @@ const esbuild = require('esbuild')
 esbuild.build({
   entryPoints: ['src/index.ts'],
   bundle: true,
-  minify: true,
   watch: true,
   platform: 'node',
-  external: ['esbuild'],
+  external: ['esbuild', 'fs', 'terser', 'html-minifier-terser'],
   outfile: 'bin/index.js'
 })
