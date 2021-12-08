@@ -22,7 +22,6 @@ yargs(hideBin(process.argv))
   }))
   .command('zip', 'Create a ZIP from one or multiple files, or even folders.', () => {}, (args) => zip({
     directory: process.cwd() + '/',
-    input: args.input,
     output: args.output,
     files: args.files
   }))
