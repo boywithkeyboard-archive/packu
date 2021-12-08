@@ -1,6 +1,6 @@
 {
   "name": "@azury/bundler",
-  "version": "1.0.1",
+  "version": "1.0.3",
   "description": "A better bundler for Node.js",
   "main": "bin/index.js",
   "scripts": {
@@ -35,6 +35,7 @@
   },
   "homepage": "https://github.com/azurystudios/bundler#readme",
   "dependencies": {
+    "css-tree": "^2.0.1",
     "esbuild": "^0.14.2",
     "html-minifier-terser": "^7.0.0-alpha.0",
     "terser": "^5.10.0"
