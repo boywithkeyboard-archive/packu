@@ -29,14 +29,6 @@ Bundles a specific file in watch mode using **esbuild**.
 build --watch
 ```
 
-**Images Mode**
-
-Minifies **all images** in a specific folder.
-
-```sh-session
-build images
-```
-
 **Minify Mode**
 
 Minifies **all files** in a specific folder.
@@ -50,11 +42,11 @@ build minify
 Bundles a specific file *(with css modules)* using **esbuild**.
 
 ```sh-session
-build css
+build --css
 ```
 
 Bundles a specific file *(with css modules)* in watch mode using **esbuild**.
 
 ```sh-session
-build css --watch
+build --css --watch
 ```
