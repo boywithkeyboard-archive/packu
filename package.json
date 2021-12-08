@@ -1,6 +1,6 @@
 {
   "name": "@azury/bundler",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A better bundler for Node.js",
   "main": "bin/index.js",
   "scripts": {
