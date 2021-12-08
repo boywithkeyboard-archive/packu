@@ -13,7 +13,8 @@ yargs(hideBin(process.argv))
     output: args.output ?? 'build/index.js',
     watch: args.watch ?? false,
     esm: args.esm ?? false,
-    css: args.css ?? false
+    css: args.css ?? false,
+    node: args.node ?? false
   }))
   .command('minify', 'Minify one file or multiple files in a specific folder.', () => {}, (args) => minify({
     directory: process.cwd() + '/',
@@ -28,6 +29,10 @@ yargs(hideBin(process.argv))
   .option('css', {
     type: 'boolean',
     description: 'Enable CSS modules.'
+  })
+  .option('node', {
+    type: 'boolean',
+    description: 'Bundle for Node.js.'
   })
   .option('watch', {
     alias: 'w',

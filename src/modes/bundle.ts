@@ -3,13 +3,13 @@ import cssModules from 'esbuild-css-modules-plugin'
 import success from '../core/success'
 import { minify } from 'terser'
 import error from '../core/error'
-import fs from 'fs'
+import { readFile, writeFile } from 'fs/promises'
 
 export default (config: any) => {
   try {
     const start = Date.now()
 
-    const { directory, input, output, watch, esm, css } = config
+    const { directory, input, output, watch, esm, css, node } = config
 
     const build = async () => {
       await esbuild.build({
@@ -18,11 +18,15 @@ export default (config: any) => {
         ...(esm && { format: 'esm', }),
         ...(watch && { watch: true, }),
         outfile: directory + output,
-        ...(css && { plugins: [cssModules()] })
+        ...(css && { plugins: [cssModules()] }),
+        ...(node && { platform: 'node' })
       })
 
-      const result = await minify(fs.readFileSync(directory + output, 'utf8'))
-      fs.writeFileSync(directory + output, result.code, 'utf-8')
+      if (!watch) {
+        const file = await readFile(directory + output, 'utf8')
+        const result = await minify(file)
+        await writeFile(directory + output, result.code, 'utf-8')
+      }
     }
     build()
   
