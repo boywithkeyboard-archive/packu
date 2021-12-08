@@ -1,4 +1,4 @@
-## Azury's Bundler
+# Azury's Bundler
 
 > [`@azury/bundler`](https://npm.im/@azury/bundler) was primarily created for **Azury's projects** and might not work for yours.
 
@@ -13,7 +13,13 @@ yarn add @azury/bundler
 
 ### Usage
 
-**Default Mode** `Production`
+Build `src/index.js` in watch mode and save the bundled file as `build/index.js`.
+
+```sh-session
+build -i src/index.js -o build/index.js -w
+```
+
+## Bundle Mode
 
 Bundles a specific file using **esbuild**.
 
@@ -21,32 +27,81 @@ Bundles a specific file using **esbuild**.
 build
 ```
 
-**Watch Mode** `Development`
+### Define Input and Output
 
-Bundles a specific file in watch mode using **esbuild**.
+```sh-session
+build --input src/index.js --output build/index.js
+```
+```sh-session
+build -i src/index.js -o build/index.js
+```
+
+### Bundle in Watch Mode
 
 ```sh-session
 build --watch
 ```
+```sh-session
+build -w
+```
 
-**Minify Mode**
+### Bundle CSS Modules
 
-Minifies **all files** in a specific folder.
+```sh-session
+build --css
+```
+```sh-session
+build -css
+```
+
+### Bundle to ESM
+
+```sh-session
+build --esm
+```
+```sh-session
+build -esm
+```
+
+## Minify Mode
 
 ```sh-session
 build minify
 ```
 
-**CSS Modules**
+### Define Input and Output
 
-Bundles a specific file *(with css modules)* using **esbuild**.
-
-```sh-session
-build --css
-```
-
-Bundles a specific file *(with css modules)* in watch mode using **esbuild**.
+Both can be either a directory or file.
 
 ```sh-session
-build --css --watch
+build minify --input myfile.js --output myfile.min.js
 ```
+```sh-session
+build minify -i myfile.js -o myfile.min.js
+```
+
+## ZIP Mode
+
+```sh-session
+build zip
+```
+
+### Define Files to Include
+
+```sh-session
+build zip --files some.png other.png image.png
+```
+```sh-session
+build zip -f some.png other.png image.png
+```
+
+### Define Output ZIP
+
+```sh-session
+build zip --output myarchive.zip
+```
+```sh-session
+build zip -o myarchive.zip
+```
+
+
