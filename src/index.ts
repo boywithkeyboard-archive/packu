@@ -8,22 +8,23 @@ import zip from './modes/zip'
 
 yargs(hideBin(process.argv))
   .command('*', 'Bundle a specific file.', () => {}, (args) => bundle({
-    directory: process.cwd(),
+    directory: process.cwd() + '/',
     input: args.input ?? 'src/index.js',
-    output: args.input ?? 'build/index.js',
+    output: args.output ?? 'build/index.js',
     watch: args.watch ?? false,
     esm: args.esm ?? false,
     css: args.css ?? false
   }))
-  .command('minify', 'fetch the contents of the URL', () => {}, (args) => minify({
-    directory: process.cwd(),
+  .command('minify', 'Minify one file or multiple files in a specific folder.', () => {}, (args) => minify({
+    directory: process.cwd() + '/',
     input: args.input,
-    output: args.input
+    output: args.output
   }))
-  .command('zip', 'fetch the contents of the URL', () => {}, (args) => zip({
-    directory: process.cwd(),
+  .command('zip', 'Create a ZIP from one or multiple files, or even folders.', () => {}, (args) => zip({
+    directory: process.cwd() + '/',
     input: args.input,
-    output: args.input
+    output: args.output,
+    files: args.files
   }))
   .option('css', {
     type: 'boolean',
@@ -38,6 +39,11 @@ yargs(hideBin(process.argv))
     alias: 'i',
     type: 'string',
     description: 'Define the input file.'
+  })
+  .option('files', {
+    alias: 'f',
+    type: 'array',
+    description: 'Define the files to archive.'
   })
   .option('output', {
     alias: 'o',
