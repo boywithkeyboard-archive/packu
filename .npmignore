@@ -1,2 +1,4 @@
 src
 .github
+build.js
+watch.js
