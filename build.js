@@ -5,6 +5,6 @@ esbuild.build({
   bundle: true,
   minify: true,
   platform: 'node',
-  external: ['esbuild', 'fs', 'terser', 'html-minifier-terser', 'archiver', 'chalk', 'css-tree', 'esbuild-css-modules-plugin', 'fs-extra', 'glob', 'svgo', 'yargs'],
+  external: ['esbuild', 'fs', 'terser', 'html-minifier-terser', 'css-tree'],
   outfile: 'build/index.js'
 })
