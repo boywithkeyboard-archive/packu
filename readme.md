@@ -2,9 +2,6 @@
 
 [![npm](https://img.shields.io/npm/v/@azury/bundler)](https://www.npmjs.com/package/@azury/bundler)
 [![npm](https://img.shields.io/npm/dt/@azury/bundler)](https://www.npmjs.com/package/@azury/bundler)
-[![GitHub last commit](https://img.shields.io/github/last-commit/azurystudios/bundler)](https://github.com/azurystudios/bundler)
-[![GitHub issues](https://img.shields.io/github/issues-raw/azurystudios/bundler)](https://github.com/azurystudios/bundler/issues)
-[![snyk vulnerabilities](https://snyk.io/test/github/azurystudios/bundler/badge.svg)](https://snyk.io/test/github/azurystudios/bundle)
 
 > [`@azury/bundler`](https://npm.im/@azury/bundler) was primarily created for **Azury's projects** and might not work for yours.
 
