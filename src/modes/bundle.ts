@@ -9,7 +9,7 @@ export default (config: any) => {
   try {
     const start = Date.now()
 
-    const { directory, input, output, watch, esm, css, node } = config
+    const { directory, input, output, watch, esm, css, node, exclude } = config
 
     const build = async () => {
       await esbuild.build({
@@ -19,6 +19,7 @@ export default (config: any) => {
         ...(watch && { watch: true, }),
         outfile: directory + output,
         ...(css && { plugins: [cssModules()] }),
+        ...(exclude && { external: exclude }),
         ...(node && { platform: 'node' })
       })
 

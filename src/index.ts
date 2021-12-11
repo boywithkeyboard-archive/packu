@@ -14,7 +14,8 @@ yargs(hideBin(process.argv))
     watch: args.watch ?? false,
     esm: args.esm ?? false,
     css: args.css ?? false,
-    node: args.node ?? false
+    node: args.node ?? false,
+    exclude: args.exclude ?? null
   }))
   .command('minify', 'Minify one file or multiple files in a specific folder.', () => {}, (args) => minify({
     directory: process.cwd() + '/',
@@ -26,6 +27,11 @@ yargs(hideBin(process.argv))
     output: args.output,
     files: args.files
   }))
+  .option('exclude', {
+    alias: 'e',
+    type: 'array',
+    description: 'Exclude dependencies from bundling.'
+  })
   .option('css', {
     type: 'boolean',
     description: 'Enable CSS modules.'
