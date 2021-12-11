@@ -1,7 +1,7 @@
 {
   "name": "@azury/bundler",
   "version": "1.2.1",
-  "description": "A better bundler for Node.js",
+  "description": "A bundler to simplify work at Azury",
   "main": "build/index.js",
   "scripts": {
     "dev": "node watch.js",
@@ -12,10 +12,6 @@
   },
   "bin": {
     "build": "build/index.js"
-  },
-  "funding": {
-    "type": "individual",
-    "url": "https://ko-fi.com/azury"
   },
   "repository": {
     "type": "git",
@@ -30,10 +26,6 @@
   ],
   "author": "Azury <hello@azury.dev> (https://azury.dev)",
   "license": "Apache-2.0",
-  "bugs": {
-    "url": "https://github.com/azurystudios/bundler/issues"
-  },
-  "homepage": "https://github.com/azurystudios/bundler#readme",
   "dependencies": {
     "css-tree": "^2.0.1",
     "esbuild": "^0.14.2",
