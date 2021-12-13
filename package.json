@@ -28,7 +28,7 @@
   "license": "Apache-2.0",
   "dependencies": {
     "css-tree": "^2.0.1",
-    "esbuild": "^0.14.2",
+    "esbuild": "^0.14.3",
     "html-minifier-terser": "^7.0.0-alpha.0",
     "terser": "^5.10.0"
   },
