@@ -19,7 +19,7 @@ export default (config: any) => {
       if (input.endsWith('.svg')) minifySVG(directory + input, directory + output, true)
     } else {
       const minify = async () => {
-        await fse.copy(directory + input, directory + output)
+        if (input !== output) await fse.copy(directory + input, directory + output)
 
         glob(directory + output + '/**/*', (err, files) => {
           if (err) return error(err)
