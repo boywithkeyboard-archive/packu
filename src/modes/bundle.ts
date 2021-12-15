@@ -25,7 +25,11 @@ export default (config: any) => {
 
       if (!watch) {
         const file = await readFile(directory + output, 'utf8')
-        const result = await minify(file)
+        const result = await minify(file, {
+          format: {
+            comments: false
+          }
+        })
         await writeFile(directory + output, result.code, 'utf-8')
       }
     }
