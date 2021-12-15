@@ -15,7 +15,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/azurystudios/bundler.git"
+    "url": "git+https://github.com/azurydev/bundler.git"
   },
   "keywords": [
     "bundle",
