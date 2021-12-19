@@ -20,7 +20,7 @@ yarn add @azury/bundler
 build -i src/index.js -o build/index.js
 ```
 
-#### Options
+#### Options:
 
 - ***--watch*** to bundle in watch mode
 - ***--css*** to enable css modules
@@ -30,7 +30,9 @@ build -i src/index.js -o build/index.js
 
   <h1 className={styles.heading}>Hello World</h1>
   ```
-- ***--esm***
+- ***--esm*** to output code as esm
+- ***--node*** to enable bundling for Node.js
+- ***--exlude*** or ***-e*** to exclude files from the bundle
 
 ### Minify
 
