@@ -32,7 +32,7 @@ build -i src/index.js -o build/index.js
   ```
 - ***--esm*** to output code as esm
 - ***--node*** to enable bundling for Node.js
-- ***--exlude*** or ***-e*** to exclude files from the bundle
+- ***--exclude*** or ***-e*** to exclude files from the bundle
 
 ### Minify
 
