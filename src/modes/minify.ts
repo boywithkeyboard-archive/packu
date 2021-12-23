@@ -10,8 +10,9 @@ export default (config: any) => {
     const start = Date.now()
 
     const { directory, input, output } = config
+    const isFile = statSync(directory + input).isFile()
   
-    if (statSync(directory + input).isFile()) {
+    if (isFile) {
       if (input.endsWith('.css')) minifyCSS(directory + input, directory + output)
       if (input.endsWith('.html')) minifyHTML(directory + input, directory + output)
       if (input.endsWith('.js')) minifyJS(directory + input, directory + output)
@@ -22,8 +23,8 @@ export default (config: any) => {
         if (input !== output) await fse.copy(directory + input, directory + output)
 
         glob(directory + output + '/**/*', (err, files) => {
-          if (err) return error(err)
-  
+          if (err) return error({ message: `Minifying failed at ${new Date().getHours()}:${new Date().getMinutes()}:${new Date().getSeconds()}` })
+
           files = files.filter(file => file.endsWith('.json') || file.endsWith('.js') || file.endsWith('.html') || file.endsWith('.svg') || file.endsWith('.css'))
   
           files.forEach(file => {
@@ -38,10 +39,11 @@ export default (config: any) => {
       minify()
     }
 
+    const type = isFile ? 'FILE' : 'FOLDER'
     const stop = Date.now()
 
-    success((stop - start) / 1000)
+    success({ message: `Minified ${type.toLowerCase()} within ~${(stop - start) / 1000}s` })
   } catch (err) {
-    error(err)
+    error({ message: `Minifying failed at ${new Date().getHours()}:${new Date().getMinutes()}:${new Date().getSeconds()}` })
   }
 }
