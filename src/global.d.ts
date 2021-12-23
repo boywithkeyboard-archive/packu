@@ -1,0 +1,1 @@
+declare module 'esbuild-css-modules-plugin'
