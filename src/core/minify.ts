@@ -11,7 +11,7 @@ export const minifyCSS = async (input: string, output: string) => {
 
 export const minifyJS = async (input: string, output: string) => {
   const file = await readFile(input, 'utf-8')
-  const result = await minify(file)     
+  const result: any = await minify(file)
   await writeFile(output, result.code, 'utf-8')
 }
 
