@@ -5,6 +5,6 @@ esbuild.build({
   bundle: true,
   watch: true,
   platform: 'node',
-  external: ['esbuild', 'fs', 'terser', 'html-minifier-terser', 'css-tree'],
+  external: ['esbuild', 'fs', 'terser', 'html-minifier-terser'],
   outfile: 'build/index.js'
 })
