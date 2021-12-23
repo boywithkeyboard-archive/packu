@@ -1,7 +1,7 @@
 {
   "name": "packu",
   "version": "2.0.1",
-  "description": "A bundler to simplify work at Azury",
+  "description": "📦 A better bundler for Node.js",
   "main": "build/index.js",
   "scripts": {
     "dev": "tsc -w",
