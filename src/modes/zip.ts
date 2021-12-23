@@ -1,7 +1,7 @@
 import zip from 'archiver'
+import { statSync, createWriteStream, createReadStream } from 'fs'
 import error from '../core/error'
 import success from '../core/success'
-import { statSync, createWriteStream, createReadStream } from 'fs'
 
 export default (config: any) => {
   try {
@@ -13,7 +13,7 @@ export default (config: any) => {
     const archive = zip('zip')
     
     archive.on('error', (err) => {
-      return error(err)
+      return error({ message: `Zipping failed at ${new Date().getHours()}:${new Date().getMinutes()}:${new Date().getSeconds()}` })
     })
 
     archive.pipe(ouputZIP)
@@ -30,8 +30,8 @@ export default (config: any) => {
 
     const stop = Date.now()
 
-    success((stop - start) / 1000, 'ZIPPED FILES!')
+    success({ message: `Zipped files within ~${(stop - start) / 1000}s` })
   } catch (err) {
-    error(err)
+    error({ message: `Zipping failed at ${new Date().getHours()}:${new Date().getMinutes()}:${new Date().getSeconds()}` })
   }
 }
