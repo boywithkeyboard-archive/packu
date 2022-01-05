@@ -1,6 +1,6 @@
 {
   "name": "packu",
-  "version": "2.0.7",
+  "version": "2.1.0",
   "description": "📦 A better bundler for Node.js",
   "main": "build/index.js",
   "scripts": {
