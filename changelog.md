@@ -10,4 +10,4 @@
 ### v2.1.0
 
 - added changelog
-- migrated internal build and watch script over to go
+- ported internal build and watch script over to go
