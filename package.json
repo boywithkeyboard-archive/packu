@@ -5,8 +5,7 @@
   "main": "build/index.js",
   "scripts": {
     "dev": "tsc -w",
-    "watch": "node watch.js",
-    "build": "node build.js && terser build/index.js --compress --mangle --output build/index.js",
+    "build": "go run build.go && terser build/index.js --compress --mangle --comments false --output build/index.js",
     "publish:patch": "npm run build && npm version patch && npm publish",
     "publish:minor": "npm run build && npm version minor && npm publish",
     "publish:major": "npm run build && npm version major && npm publish"
