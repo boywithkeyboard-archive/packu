@@ -2,3 +2,5 @@
 /.github
 build.go
 changelog.md
+go.mod
+go.sum
