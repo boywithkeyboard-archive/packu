@@ -1,4 +1,4 @@
 /src
 /.github
 build.go
-changelog
+changelog.md
