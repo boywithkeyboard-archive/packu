@@ -1,5 +1,4 @@
 /src
 /.github
-build.js
-watch.js
+build.go
 changelog
