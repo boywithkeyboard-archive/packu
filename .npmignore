@@ -1,4 +1,5 @@
-src
-.github
+/src
+/.github
 build.js
 watch.js
+changelog
