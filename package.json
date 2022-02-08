@@ -37,7 +37,7 @@
   },
   "homepage": "https://github.com/azurydev/packu#readme",
   "dependencies": {
-    "esbuild": "^0.14.11",
+    "esbuild": "^0.14.20",
     "html-minifier-terser": "^7.0.0-alpha.0",
     "log-update": "^5.0.0",
     "terser": "^5.10.0"
