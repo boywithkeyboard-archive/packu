@@ -54,7 +54,7 @@
     "boxen": "^6.2.1",
     "chalk": "^5.0.0",
     "css-tree": "^2.0.4",
-    "esbuild-css-modules-plugin": "^2.0.9",
+    "esbuild-css-modules-plugin": "^2.1.5",
     "fs-extra": "^10.0.0",
     "glob": "^7.2.0",
     "svgo": "^2.8.0",
