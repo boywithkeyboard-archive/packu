@@ -55,7 +55,7 @@
     "chalk": "^5.0.0",
     "css-tree": "^2.0.4",
     "esbuild-css-modules-plugin": "^2.0.9",
-    "fs-extra": "^10.0.0",
+    "fs-extra": "^10.0.1",
     "glob": "^7.2.0",
     "svgo": "^2.8.0",
     "typescript": "^4.5.2",
