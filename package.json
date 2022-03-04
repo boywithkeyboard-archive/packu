@@ -26,13 +26,8 @@
     "bundler",
     "minimalistic",
     "minifier",
-    "easy-to-use",
     "cli",
-    "typescript",
-    "console",
-    "zip",
-    "javascript",
-    "js"
+    "sdk"
   ],
   "author": "Azury <hello@azury.dev> (https://azury.dev)",
   "license": "Apache-2.0",
