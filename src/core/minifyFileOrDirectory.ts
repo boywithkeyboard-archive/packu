@@ -50,31 +50,34 @@ const minifyFileOrDirectory: MinifyFileOrDirectory = async (config: {
   input: string,
   output?: string
 }) => {
-  if (!existsSync(config.input)) return { success: false, error: 'Please provide an existing file or directory.' }
+  const input = config.input
+  , output = config.output ?? config.input
+
+  if (!existsSync(input)) return { success: false, error: 'Please provide an existing file or directory.' }
   
-  if (statSync(config.input).isFile()) {
-    if (config.input.endsWith('.css')) css(config.input, config.output ?? config.input)
-    else if (config.input.endsWith('.html')) html(config.input, config.output ?? config.input)
-    else if (config.input.endsWith('.js')) js(config.input, config.output ?? config.input)
-    else if (config.input.endsWith('.json')) json(config.input, config.output ?? config.input)
-    else if (config.input.endsWith('.svg')) svg(config.input, config.output ?? config.input, (typeof config.output !== 'string'))
+  if (statSync(input).isFile()) {
+    if (input.endsWith('.css')) css(input, output)
+    else if (input.endsWith('.html')) html(input, output)
+    else if (input.endsWith('.js')) js(input, output)
+    else if (input.endsWith('.json')) json(input, output)
+    else if (input.endsWith('.svg')) svg(input, output, (typeof config.output !== 'string'))
 
     return { success: true }
   } else {
     const minify = async () => {
-      if (config.output && config.input !== config.output) await fse.copy(config.input, config.output)
+      if (output && input !== output) await fse.copy(input, output)
 
-      glob(config.output + '/**/*', (err, files) => {
+      glob(output + '/**/*', (err, files) => {
         if (err) return { success: false, error: 'Something went wrong while trying to minify your files.' }
 
         files = files.filter(file => file.endsWith('.json') || file.endsWith('.js') || file.endsWith('.html') || file.endsWith('.svg') || file.endsWith('.css'))
 
         for (const file of files) {
-          if (config.input.endsWith('.css')) css(file, file)
-          else if (config.input.endsWith('.html')) html(file, file)
-          else if (config.input.endsWith('.js')) js(file, file)
-          else if (config.input.endsWith('.json')) json(file, file)
-          else if (config.input.endsWith('.svg')) svg(file, file, false)
+          if (input.endsWith('.css')) css(file, file)
+          else if (input.endsWith('.html')) html(file, file)
+          else if (input.endsWith('.js')) js(file, file)
+          else if (input.endsWith('.json')) json(file, file)
+          else if (input.endsWith('.svg')) svg(file, file, false)
         }
       })
     }
